@@ -8,30 +8,16 @@ public class PalindromeCheckerApp {
         // Original string
         String original = "madam";
 
-        // Create Deque
-        Deque<Character> deque = new LinkedList<>();
+        // Variable to store reversed string
+        String reversed = "";
 
-        // Insert characters into deque
-        for (int i = 0; i < original.length(); i++) {
-            deque.addLast(original.charAt(i));
+        // Reverse using for loop
+        for (int i = original.length() - 1; i >= 0; i--) {
+            reversed = reversed + original.charAt(i);
         }
 
-        boolean isPalindrome = true;
-
-        // Compare front and rear until deque becomes small
-        while (deque.size() > 1) {
-
-            char front = deque.removeFirst();
-            char rear = deque.removeLast();
-
-            if (front != rear) {
-                isPalindrome = false;
-                break;
-            }
-        }
-
-        // Print result
-        if (isPalindrome) {
+        // Compare original and reversed
+        if (original.equals(reversed)) {
             System.out.println(original + " is a Palindrome.");
         } else {
             System.out.println(original + " is NOT a Palindrome.");
